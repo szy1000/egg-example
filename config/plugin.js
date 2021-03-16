@@ -6,7 +6,7 @@ module.exports = {
   static: {
     enable: true,
     package: 'egg-view-nunjucks',
-  }
+  },
 
   // enable: true,
   // package: 'egg-view-nunjucks',
