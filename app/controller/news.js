@@ -15,6 +15,10 @@ class NewsController extends Controller {
         { id: 2, title: 'this is news 2', url: '/news/2' },
       ],
     };
+    const ctx = this.ctx;
+    const page = ctx.query.page || 1;
+    const newsList = await ctx.service.news.list(page)
+    dataList.list = newsList
     await this.ctx.render('news/list.tpl', dataList);
   }
 }

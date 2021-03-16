@@ -11,18 +11,32 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  console.log(path.join(appInfo.baseDir, '/app/public'));
   const config = exports = {
     view: {
-      // root: [
-      //   path.join(appInfo.baseDir, '/app/view'),
-      //   path.join(appInfo.baseDir, '/app'),
-      // ].join(','),
-      // root: path.join('/'),
       defaultViewEngine: 'nunjucks',
       mapping: {
         '.tpl': 'nunjucks',
       },
+    },
+  };
+
+  if (process.env.http_proxy) {
+    config.httpclient = {
+      request: {
+        enableProxy: true,
+        rejectUnauthorized: false,
+        proxy: process.env.http_proxy,
+      },
+    };
+  }
+
+  config.httpclient = {
+    request: {
+      timeout: 3000,
+    },
+    httpAgent: {
+      keepAlive: true,
+      timeout: 63000,
     },
   };
 
@@ -32,14 +46,12 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
-  config.static = {
-    prefix: '/public',
-    dir: path.join(appInfo.baseDir, 'app/public'),
-    dynamic: true,
-    preload: false,
-    maxAge: 31536000,
-  };
+  config.news = {
+    pageSize: 5,
+    // serverUrl: 'https://hacker-news.firebaseio.com/v0',
+    serverUrl: 'https://shenzhiyong.com.cn/',
 
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
