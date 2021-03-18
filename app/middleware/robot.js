@@ -5,8 +5,7 @@ module.exports = (options, app) => {
     const source = ctx.get('user-agent') || '';
     const match = options.ua.some(ua => ua.test(source));
 
-    console.log('match==>', app);
-
+    app.toString(); //  fixed eslint
 
     if (match) {
       ctx.status = 403;
