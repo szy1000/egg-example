@@ -20,6 +20,7 @@ module.exports = appInfo => {
     },
   };
 
+
   if (process.env.http_proxy) {
     config.httpclient = {
       request: {
@@ -44,7 +45,13 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1615803265022_1948';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [
+    'robot',
+  ];
+
+  config.robot = {
+    ua: [ /Baiduspider/i ],
+  };
 
   config.news = {
     pageSize: 5,
@@ -62,3 +69,4 @@ module.exports = appInfo => {
     ...userConfig,
   };
 };
+

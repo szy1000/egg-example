@@ -5,7 +5,6 @@ const Service = require('egg').Service;
 class NewsService extends Service {
   async list(page = 1) {
     const { serverUrl, pageSize } = this.config.news;
-    console.log('url==>',`${serverUrl}/topstories.json`)
     const { data: idList } = await this.ctx.curl(`${serverUrl}/topstories.json`, {
       data: {
         orderBy: '"$key"',
@@ -15,8 +14,6 @@ class NewsService extends Service {
       dataType: 'json',
       timeout: 36000,
     });
-
-    console.log('data', { data: idList });
 
     idList.length = 1
     const newsList = await Promise.all(
