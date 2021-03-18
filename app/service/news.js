@@ -15,7 +15,7 @@ class NewsService extends Service {
       timeout: 36000,
     });
 
-    idList.length = 1
+    idList.length = 1;
     const newsList = await Promise.all(
       Object.keys(idList).map(key => {
         const url = `${serverUrl}/item/${idList[key]}.json`;

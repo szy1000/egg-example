@@ -1,7 +1,6 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
-
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -49,7 +48,7 @@ module.exports = appInfo => {
   ];
 
   config.robot = {
-    ua: [ /curl/i, /Baiduspider/i ],
+    ua: [ /Baiduspider/i ],
   };
 
   config.news = {
