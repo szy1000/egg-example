@@ -4,11 +4,11 @@ const Controller = require('egg').Controller;
 
 class UserController extends Controller {
 
-  encode(str) {
+  encode(str = '') {
     return new Buffer(str).toString('base64');
   }
 
-  decode(str) {
+  decode(str = '') {
     return new Buffer(str, 'base64').toString();
   }
 
@@ -30,6 +30,11 @@ class UserController extends Controller {
       encrypt: true,
       httpOnly: false,
     });
+
+    // 保存 session
+    ctx.session.user = body;
+
+
     ctx.body = {
       status: 'ok',
       data: {
@@ -40,6 +45,9 @@ class UserController extends Controller {
 
   async logout() {
     const { ctx } = this;
+    // 清除session
+    ctx.session.user = null;
+
     // 传入的参数
     const body = ctx.request.body;
     console.log('body', body);
@@ -51,6 +59,11 @@ class UserController extends Controller {
 
   async query() {
     const { ctx } = this;
+
+    // 获取session
+    const session = ctx.session.user;
+    console.log('session', session);
+
     const res = await ctx.cookies.get('user');
     const test_Zh = await ctx.cookies.get('test_Zh', {
       encrypt: true,

@@ -2,6 +2,25 @@
 'use strict';
 /*eslint-disable*/
 module.exports = app => {
+
+  const store = {}
+
+  app.sessionStore = {
+    async get(key) {
+      console.log('__store__',store)
+      return store[key]
+    },
+
+    async set(key,value,maxAge) {
+      store[key] = value
+    },
+
+    async destroy(key) {
+      store[key] = null
+    }
+  }
+
+
   app.once('server', (server) => {
     // websocket
 

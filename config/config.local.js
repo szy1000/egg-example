@@ -39,6 +39,12 @@ module.exports = appInfo => {
     },
   };
 
+
+  config.session = {
+    key: 'Szy_SESS',
+    // httpOnly: false,
+  };
+
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1615803265022_1948';
 
