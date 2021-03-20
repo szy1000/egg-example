@@ -3,6 +3,8 @@
 /**
  * @param {Egg.Application} app - egg application
  */
+const PATH = '/api/v1';
+
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
@@ -13,6 +15,9 @@ module.exports = app => {
   // 路由传参 && 动态路由传参
   router.get('/detail', controller.list.detail);
   router.get('/detail/:id', controller.list.detail2);
+
+  router.post(`${PATH}/user/login`, controller.user.login);
+  router.post(`${PATH}/user/logout`, controller.user.logout);
 
   router.get('/user/query', controller.user.query);
   router.post('/user/add', controller.user.add);
