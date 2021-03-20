@@ -3,6 +3,15 @@
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
+
+  encode(str) {
+    return new Buffer(str).toString('base64');
+  }
+
+  decode(str) {
+    return new Buffer(str, 'base64').toString();
+  }
+
   async fetch() {
     this.ctx.body = this.app.cache.get(this.ctx.query.id);
   }
@@ -11,8 +20,16 @@ class UserController extends Controller {
     const { ctx } = this;
     // 传入的参数
     const body = ctx.request.body;
-    console.log('body', body);
-    ctx.cookies.set('user', JSON.stringify(body));
+    ctx.cookies.set('user', JSON.stringify(body), {
+      maxAge: 60 * 60 * 12,
+      httpOnly: false,
+    });
+
+    ctx.cookies.set('test_Zh', '测试中文', {
+      maxAge: 60 * 60 * 12,
+      encrypt: true,
+      httpOnly: false,
+    });
     ctx.body = {
       status: 'ok',
       data: {
@@ -35,9 +52,15 @@ class UserController extends Controller {
   async query() {
     const { ctx } = this;
     const res = await ctx.cookies.get('user');
+    const test_Zh = await ctx.cookies.get('test_Zh', {
+      encrypt: true,
+    });
     // const res = await ctx.service.user.query(ctx.query.id);
-    console.log(res);
-    await ctx.render('user/user.tpl', { res: res ? JSON.parse(res).name : null });
+    console.log(test_Zh);
+    await ctx.render('user/user.tpl', {
+      res: res ? JSON.parse(res).name : null,
+      test_Zh,
+    });
   }
 
   async add() {

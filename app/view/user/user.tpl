@@ -19,7 +19,7 @@
     <li><label for="password">密码</label><input id="password" type="password"></li>
   </ul>
 
-
+  <h1>  {{test_Zh}}</h1>
 
     <h1>user</h1>
     <ul class="news-view view">
