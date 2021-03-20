@@ -6,7 +6,12 @@ class UserController extends Controller {
   async fetch() {
     this.ctx.body = this.app.cache.get(this.ctx.query.id);
   }
+  async query() {
+    const { ctx } = this;
+    const res = await ctx.service.user.query(ctx.query.id);
+    ctx.body = res;
 
+  }
   async add() {
     const { ctx } = this;
     // 参数规则校验
