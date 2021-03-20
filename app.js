@@ -1,9 +1,10 @@
+
 'use strict';
-
+/*eslint-disable*/
 module.exports = app => {
-
-  app.once('server', server => {
+  app.once('server', (server) => {
     // websocket
+
   });
   app.on('error', (err, ctx) => {
     // report error

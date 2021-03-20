@@ -52,6 +52,12 @@ module.exports = appInfo => {
     ua: [ /curl/i, /Baiduspider/i ],
   };
 
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+  };
+
   config.news = {
     pageSize: 5,
     // serverUrl: 'https://hacker-news.firebaseio.com/v0',
