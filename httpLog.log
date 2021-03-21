@@ -1,0 +1,4 @@
+2021-03-22: 07:38:11 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-03-22: 07:38:11","timeLength":10}
+2021-03-22: 07:38:33 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-03-22: 07:38:33","timeLength":1}
+2021-03-22: 07:39:05 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-03-22: 07:39:05","timeLength":"10ms"}
+2021-03-22: 07:39:16 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-03-22: 07:39:16","timeLength":"2ms"}
