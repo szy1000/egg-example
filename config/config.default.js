@@ -63,7 +63,20 @@ module.exports = appInfo => {
     pageSize: 5,
     // serverUrl: 'https://hacker-news.firebaseio.com/v0',
     serverUrl: 'https://shenzhiyong.com.cn/',
+  };
 
+
+  config.mysql = {
+    app: true,
+    agent: false,
+    client: {
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password: 'sx123456',
+      database: 'egg',
+
+    },
   };
   // add your user config here
   const userConfig = {

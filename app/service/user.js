@@ -4,11 +4,18 @@ const Service = require('egg').Service;
 
 class UserService extends Service {
   async query(id = 1) {
-    console.log(id);
-    if (id === '1') {
-      return 'shenzhiyong';
+    try {
+      const { app } = this;
+      console.log('app', app.mysql);
+      return await app.mysql.select('user');
+    } catch (error) {
+      console.log(error);
+      return null;
     }
-    return 111;
+    // if (id === '1') {
+    //   return 'shenzhiyong';
+    // }
+    // return 111;
   }
 }
 

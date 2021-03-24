@@ -21,6 +21,7 @@
 
   <h1>  {{test_Zh}}</h1>
 
+    <p>{{ data }}</p>
     <h1>user</h1>
     <ul class="news-view view">
       <a href="/">index</a>

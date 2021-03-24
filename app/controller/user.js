@@ -63,16 +63,24 @@ class UserController extends Controller {
     // 获取session
     const session = ctx.session.user;
     console.log('session', session);
-
+    // 操作cookies
     const res = await ctx.cookies.get('user');
     const test_Zh = await ctx.cookies.get('test_Zh', {
       encrypt: true,
     });
     // const res = await ctx.service.user.query(ctx.query.id);
     console.log(test_Zh);
+
+
+    // 获取数据库数据
+
+    const data = await ctx.service.user.query();
+    console.log(data);
+
     await ctx.render('user/user.tpl', {
       res: res ? JSON.parse(res).name : null,
       test_Zh,
+      data,
     });
   }
 
