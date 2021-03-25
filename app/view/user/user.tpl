@@ -1,6 +1,10 @@
 <html>
   <head>
     <title>Hacker User</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <!--    <link rel="stylesheet" href="public/css/news.css" />-->
   </head>
   <body>
