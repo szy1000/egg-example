@@ -14,15 +14,25 @@
 
   {% endif %}
 
+
   <ul>
     <li><label for="name">用户名</label><input id="name" type="text"></li>
     <li><label for="password">密码</label><input id="password" type="password"></li>
     <button id="register" onclick="register()">注册</button>
   </ul>
 
-  <h1>  {{test_Zh}}</h1>
+  <h1>{{test_Zh}}</h1>
 
-    <p>{{ data }}</p>
+  <ul>
+    {% for item in data %}
+    <li class="item">
+      <label>{{ item.id }}</label>
+      <label>{{ item.name }}</label>
+      <span>{{item.pwd}}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <hr />
     <h1>user</h1>
     <ul class="news-view view">
       <a href="/">index</a>

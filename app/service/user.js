@@ -3,16 +3,18 @@
 const Service = require('egg').Service;
 
 class UserService extends Service {
-  async query(id = 1) {
-    console.log('idid', id);
+  async query(id) {
     try {
       const { app } = this;
       // console.log('app', app.mysql);
+      if (id) {
+        // 查询一个
+        return [ await app.mysql.get('user', { id }) ];
+      }
       // 查询所有
-      // return await app.mysql.select('user');
+      return await app.mysql.select('user');
 
-      // 查询一个
-      return await app.mysql.get('user', { id });
+
     } catch (error) {
       console.log(error);
       return null;

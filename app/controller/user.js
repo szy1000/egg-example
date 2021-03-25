@@ -2,6 +2,12 @@
 
 const Controller = require('egg').Controller;
 
+function toInt(str) {
+  if (typeof str === 'number') return str;
+  if (!str) return str;
+  return parseInt(str, 10) || 0;
+}
+
 class UserController extends Controller {
 
   encode(str = '') {
@@ -73,8 +79,20 @@ class UserController extends Controller {
 
 
     // 获取数据库数据
-    const data = await ctx.service.user.query(ctx.params().id);
-    console.log('data===>', data);
+    // const data = await ctx.service.user.query(ctx.params().id);
+
+    console.log('ctx.model[===>', ctx.model.User);
+    let data = null;
+    console.log(ctx.params());
+    const { id, limit = 20, offset } = ctx.params();
+    if (id) {
+      data = [ await ctx.model.User.findByPk(id) ];
+    } else {
+      data = await ctx.model.User.findAll({
+        limit: toInt(limit),
+        offset: toInt(offset),
+      });
+    }
 
     await ctx.render('user/user.tpl', {
       res: res ? JSON.parse(res).name : null,
@@ -86,7 +104,6 @@ class UserController extends Controller {
   async add() {
     const { ctx } = this;
     // 参数规则校验
-    console.log(ctx.params());
     const rule = {
       name: { type: 'string' },
       pwd: { type: 'string' },
@@ -95,7 +112,9 @@ class UserController extends Controller {
     ctx.validate(rule);
 
     // 插入数据库
-    const data = await ctx.service.user.add(ctx.params());
+    // const data = await ctx.service.user.add(ctx.params());
+
+    const data = await ctx.model.User.create(ctx.params());
 
     ctx.body = {
       status: true,
@@ -114,8 +133,20 @@ class UserController extends Controller {
 
     ctx.validate(rule);
     // 编辑数据库
-    const data = await ctx.service.user.update(ctx.params())
+    // const data = await ctx.service.user.update(ctx.params());
+    console.log({ id: ctx.params().id });
 
+    const user = await ctx.model.User.findByPk(ctx.params().id);
+    console.log(user);
+    if (!user) {
+      ctx.body = {
+        status: 404,
+        errMsg: 'id不存在',
+      };
+      return;
+    }
+
+    const data = user.update(ctx.params());
     ctx.body = {
       status: true,
       data,
@@ -125,8 +156,22 @@ class UserController extends Controller {
   async del() {
     const { ctx } = this;
     // 参数规则校验
-    console.log(ctx.params().id)
-    const data = await ctx.service.user.delete(ctx.params().id)
+    // const data = await ctx.service.user.delete(ctx.params().id);
+    console.log('ctx.params().id==>', ctx.params().id);
+    const user = await ctx.model.User.findByPk(ctx.params().id);
+
+    console.log('ctx.params().user==>', user);
+
+    if (!user) {
+      ctx.body = {
+        status: 404,
+        errMsg: 'id不存在',
+      };
+      return;
+    }
+
+    const data = user.destroy(ctx.params().id);
+
 
     ctx.body = {
       status: true,
