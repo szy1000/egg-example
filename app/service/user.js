@@ -10,6 +10,9 @@ class UserService extends Service {
       // console.log('app', app.mysql);
       // 查询所有
       // return await app.mysql.select('user');
+
+      // 查询一个
+      return await app.mysql.get('user', { id });
     } catch (error) {
       console.log(error);
       return null;
@@ -18,6 +21,39 @@ class UserService extends Service {
     //   return 'shenzhiyong';
     // }
     // return 111;
+  }
+
+  async add(params) {
+    try {
+      const { app } = this;
+      // 查询一个
+      return await app.mysql.insert('user', params);
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async update(params) {
+    try {
+      const { app } = this;
+      // 查询一个
+      return await app.mysql.update('user', params);
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async del(id) {
+    try {
+      const { app } = this;
+      // 查询一个
+      return await app.mysql.del('user', { id });
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   }
 }
 

@@ -73,7 +73,6 @@ class UserController extends Controller {
 
 
     // 获取数据库数据
-
     const data = await ctx.service.user.query(ctx.params().id);
     console.log('data===>', data);
 
@@ -87,17 +86,20 @@ class UserController extends Controller {
   async add() {
     const { ctx } = this;
     // 参数规则校验
+    console.log(ctx.params());
     const rule = {
       name: { type: 'string' },
-      age: { type: 'number' },
+      pwd: { type: 'string' },
     };
 
     ctx.validate(rule);
+
+    // 插入数据库
+    const data = await ctx.service.user.add(ctx.params());
+
     ctx.body = {
       status: true,
-      data: {
-        ...ctx.request.body,
-      },
+      data,
     };
   }
 
@@ -105,33 +107,30 @@ class UserController extends Controller {
     const { ctx } = this;
     // 参数规则校验
     const rule = {
+      id: { type: 'string' },
       name: { type: 'string' },
-      age: { type: 'number' },
+      pwd: { type: 'string' },
     };
 
     ctx.validate(rule);
+    // 编辑数据库
+    const data = await ctx.service.user.update(ctx.params())
+
     ctx.body = {
       status: true,
-      data: {
-        ...ctx.request.body,
-      },
+      data,
     };
   }
 
   async del() {
     const { ctx } = this;
     // 参数规则校验
-    const rule = {
-      name: { type: 'string' },
-      age: { type: 'number' },
-    };
+    console.log(ctx.params().id)
+    const data = await ctx.service.user.delete(ctx.params().id)
 
-    ctx.validate(rule);
     ctx.body = {
       status: true,
-      data: {
-        ...ctx.request.body,
-      },
+      data,
     };
   }
 }

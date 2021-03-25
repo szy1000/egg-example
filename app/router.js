@@ -22,7 +22,7 @@ module.exports = app => {
   router.post(`${PATH}/user/logout`, controller.user.logout);
 
   router.get('/user/query', controller.user.query);
-  router.post('/user/add', controller.user.add);
+  router.post(`${PATH}/user/add`, controller.user.add);
   router.put('/user/edit', controller.user.edit);
   router.delete('/user/del', controller.user.del);
 
