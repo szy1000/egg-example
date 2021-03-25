@@ -74,8 +74,8 @@ class UserController extends Controller {
 
     // 获取数据库数据
 
-    const data = await ctx.service.user.query();
-    console.log(data);
+    const data = await ctx.service.user.query(ctx.params().id);
+    console.log('data===>', data);
 
     await ctx.render('user/user.tpl', {
       res: res ? JSON.parse(res).name : null,

@@ -17,10 +17,8 @@ class HomeController extends Controller {
     // helper扩展
     ctx.response.token = ctx.helper.base64('dsadsada');
     await ctx.render('home/home.tpl', {
-      _packageInfo,
+      _packageInfo: JSON.stringify(_packageInfo),
     });
-
-
   }
 }
 
