@@ -18,13 +18,14 @@ module.exports = app => {
   router.get('/detail', controller.list.detail);
   router.get('/detail/:id', controller.list.detail2);
 
-  router.post(`${PATH}/user/login`, controller.user.login);
-  router.post(`${PATH}/user/logout`, controller.user.logout);
+  router.post(`${PATH}/user/register`, controller.user.register);
+  // router.post(`${PATH}/user/login`, controller.user.login);
+  // router.post(`${PATH}/user/logout`, controller.user.logout);
 
-  router.get('/user/query', controller.user.query);
-  router.post(`${PATH}/user/add`, controller.user.add);
-  router.put('/user/edit', controller.user.edit);
-  router.delete('/user/del', controller.user.del);
+  // router.get('/user/query', controller.user.query);
+  // router.post(`${PATH}/user/add`, controller.user.add);
+  // router.put('/user/edit', controller.user.edit);
+  // router.delete('/user/del', controller.user.del);
 
-  router.get('/curl', controller.curl.index);
+  // router.get('/curl', controller.curl.index);
 };

@@ -251,3 +251,4 @@
 2021-03-25: 17:12:25 [httpLog] {"url":"/user/query","method":"GET","data":{},"startTime":"2021-03-25: 17:12:25","timeLength":"7ms"}
 2021-03-25: 17:12:27 [httpLog] {"url":"/user/query","method":"GET","data":{},"startTime":"2021-03-25: 17:12:27","timeLength":"4ms"}
 2021-03-25: 17:35:06 [httpLog] {"url":"/user/query","method":"GET","data":{},"startTime":"2021-03-25: 17:35:06","timeLength":"6ms"}
+2021-04-04: 23:52:21 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong","password":"1234"},"startTime":"2021-04-04: 23:52:21","timeLength":"22ms"}
