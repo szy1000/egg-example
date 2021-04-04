@@ -252,3 +252,7 @@
 2021-03-25: 17:12:27 [httpLog] {"url":"/user/query","method":"GET","data":{},"startTime":"2021-03-25: 17:12:27","timeLength":"4ms"}
 2021-03-25: 17:35:06 [httpLog] {"url":"/user/query","method":"GET","data":{},"startTime":"2021-03-25: 17:35:06","timeLength":"6ms"}
 2021-04-04: 23:52:21 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong","password":"1234"},"startTime":"2021-04-04: 23:52:21","timeLength":"22ms"}
+2021-04-05: 00:00:55 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong","password":"1234"},"startTime":"2021-04-05: 00:00:55","timeLength":"9ms"}
+2021-04-05: 00:04:15 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong1","password":"1234"},"startTime":"2021-04-05: 00:04:15","timeLength":"19ms"}
+2021-04-05: 00:07:06 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong1","password":"1234"},"startTime":"2021-04-05: 00:07:06","timeLength":"9ms"}
+2021-04-05: 00:07:15 [httpLog] {"url":"/api/v1/user/register","method":"POST","data":{"username":"shenzhiyong2","password":"1234"},"startTime":"2021-04-05: 00:07:15","timeLength":"15ms"}
