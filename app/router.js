@@ -19,7 +19,8 @@ module.exports = app => {
   router.get('/detail/:id', controller.list.detail2);
 
   router.post(`${PATH}/user/register`, controller.user.register);
-  // router.post(`${PATH}/user/login`, controller.user.login);
+  router.post(`${PATH}/user/login`, controller.user.login);
+
   // router.post(`${PATH}/user/logout`, controller.user.logout);
 
   // router.get('/user/query', controller.user.query);
