@@ -50,16 +50,20 @@ class UserController extends Controller {
   }
 
   async login() {
-    const { ctx } = this;
+    const { ctx, app } = this;
     const { username, password } = ctx.params();
     const user = await ctx.service.user.getUser(username, password);
     if (user) {
+      const token = app.jwt.sign({
+        username,
+      }, app.config.jwt.secret);
       ctx.session.userId = user.id;
       ctx.body = {
         status: 200,
         data: {
           ...ctx.helper.unPick(user.dataValues, [ 'password' ]),
           createTime: ctx.helper.timestamp(user.createTime),
+          token,
         },
       };
       return;

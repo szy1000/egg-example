@@ -92,6 +92,10 @@ module.exports = appInfo => {
     },
   };
 
+  config.jwt = {
+    secret: 'shenzhiyong',
+  };
+
   // add your user config here
   const userConfig = {
     salt: 'shenzhiyong',
