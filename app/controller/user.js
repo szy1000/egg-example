@@ -11,6 +11,17 @@ function toInt(str) {
 }
 
 class UserController extends Controller {
+  async jwtSign() {
+    const { ctx, app } = this;
+    const { username } = ctx.params();
+    const token = app.jwt.sign({
+      username,
+    }, app.config.jwt.secret);
+
+    ctx.session[username] = 1;
+
+    return token;
+  }
 
   async register() {
     const { ctx, app } = this;
@@ -54,16 +65,16 @@ class UserController extends Controller {
     const { username, password } = ctx.params();
     const user = await ctx.service.user.getUser(username, password);
     if (user) {
-      const token = app.jwt.sign({
-        username,
-      }, app.config.jwt.secret);
-      ctx.session.userId = user.id;
+      // console.log(this.jwtSign());
+      // const token = app.jwt.sign({
+      //   username,
+      // }, app.config.jwt.secret);
       ctx.body = {
         status: 200,
         data: {
           ...ctx.helper.unPick(user.dataValues, [ 'password' ]),
           createTime: ctx.helper.timestamp(user.createTime),
-          token,
+          token: await this.jwtSign(),
         },
       };
       return;
