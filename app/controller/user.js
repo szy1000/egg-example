@@ -50,6 +50,7 @@ class UserController extends Controller {
         data: {
           ...ctx.helper.unPick(res.dataValues, [ 'password' ]),
           createTime: ctx.helper.timestamp(res.createTime),
+          token: await this.jwtSign(),
         },
       };
     } else {
