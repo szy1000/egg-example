@@ -30,6 +30,8 @@ module.exports = appInfo => {
     };
   }
 
+  config.proxy = true;
+
   config.httpclient = {
     request: {
       timeout: 3000,
@@ -94,6 +96,11 @@ module.exports = appInfo => {
 
   config.jwt = {
     secret: 'shenzhiyong',
+  };
+
+  config.cors = {
+    origin: 'http://localhost:63342', // 匹配规则  域名+端口  *则为全匹配
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
   // add your user config here

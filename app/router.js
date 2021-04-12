@@ -21,6 +21,9 @@ module.exports = app => {
   router.post(`${PATH}/user/register`, controller.user.register);
   router.post(`${PATH}/user/login`, controller.user.login);
 
+
+  router.post(`${PATH}/collect`, controller.collect.index);
+
   // router.post(`${PATH}/user/logout`, controller.user.logout);
 
   // router.get('/user/query', controller.user.query);
