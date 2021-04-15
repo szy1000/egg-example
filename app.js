@@ -20,6 +20,8 @@ module.exports = app => {
     }
   }
 
+  app.config.coreMiddleware.push('auth')
+
 
   app.once('server', (server) => {
     // websocket
