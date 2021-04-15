@@ -332,3 +332,10 @@
 2021-04-12: 16:29:58 [httpLog] {"url":"/api/v1/collect","method":"POST","data":{"page":"http://localhost:63342/upload/index.html?_ijt=e5p66vie44os2ruikqrsq5viag","上传":1},"startTime":"2021-04-12: 16:29:58","timeLength":"1ms"}
 2021-04-12: 16:30:46 [httpLog] {"url":"/api/v1/collect","method":"POST","data":{"page":"http://localhost:63342/upload/index.html?_ijt=e5p66vie44os2ruikqrsq5viag","下单":1},"startTime":"2021-04-12: 16:30:46","timeLength":"1ms"}
 2021-04-12: 16:31:26 [httpLog] {"url":"/api/v1/collect","method":"POST","data":{"page":"http://localhost:63342/upload/index.html?_ijt=e5p66vie44os2ruikqrsq5viag","ip":"222.190.112.82","返回":1,"下单":1},"startTime":"2021-04-12: 16:31:26","timeLength":"1ms"}
+2021-04-16: 00:04:15 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:04:15","timeLength":"22ms"}
+2021-04-16: 00:23:39 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:23:39","timeLength":"3ms"}
+2021-04-16: 00:23:39 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:23:39","timeLength":"1ms"}
+2021-04-16: 00:23:40 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:23:40","timeLength":"2ms"}
+2021-04-16: 00:23:40 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:23:40","timeLength":"2ms"}
+2021-04-16: 00:23:57 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:23:57","timeLength":"2ms"}
+2021-04-16: 00:24:08 [httpLog] {"url":"/","method":"GET","data":{},"startTime":"2021-04-16: 00:24:08","timeLength":"2ms"}
