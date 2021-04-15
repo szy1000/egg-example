@@ -103,6 +103,7 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
+  config.auth = [ '/api/user/login', '/api/user/register' ];
   // add your user config here
   const userConfig = {
     salt: 'shenzhiyong',
