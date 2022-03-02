@@ -72,22 +72,36 @@ module.exports = appInfo => {
     app: true,
     agent: false,
     client: {
-      host: '127.0.0.1',
-      port: 3306,
+      // host: '127.0.0.1',
+      // port: 3306,
+      // user: 'root',
+      // password: 'sx123456',
+      // database: 'egg',
+
+      host: '121.89.240.241',
+      port: 43306,
       user: 'root',
-      password: 'sx123456',
-      database: 'egg',
+      password: 'cptbtptp123456',
+      database: 'hzTest',
 
     },
   };
 
   config.sequelize = {
+    // dialect: 'mysql',
+    // host: '127.0.0.1',
+    // port: 3306,
+    // user: 'root',
+    // password: 'sx123456',
+    // database: 'egg_house',
+
     dialect: 'mysql',
-    host: '127.0.0.1',
-    port: 3306,
+    host: '121.89.240.241',
+    port: 43306,
     user: 'root',
-    password: 'sx123456',
-    database: 'egg_house',
+    password: 'cptbtptp123456',
+    database: 'hzTest',
+
     define: {
       timestamps: false,
       freezeTableName: true,
